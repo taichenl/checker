@@ -28,13 +28,14 @@ int StudentAI::evaluate(Board board){
 
 
 int StudentAI::minMoves(int depth, Board b, int p){
-  if (depth == 0 or b.getAllPossibleMoves(p).size()==0){
+  vector<vector<Move>> moves = b.getAllPossibleMoves(p);
+  if (depth == 0 or moves.size()==0){
         return evaluate(b);
     }
     else{
         int min = 1000000;
         int oppo = (p == 1)? 2: 1;
-        for (auto a :b.getAllPossibleMoves(p)){ //change later
+        for (auto a :moves){ //change later
             for (auto i : a){
                 Board temp = b;
                 temp.makeMove(i, p); //change
@@ -48,13 +49,14 @@ int StudentAI::minMoves(int depth, Board b, int p){
 
 
 int StudentAI::maxMoves(int depth, Board b, int p){
-  if (depth == 0 or b.getAllPossibleMoves(p).size()==0){
+  vector<vector<Move>> moves = b.getAllPossibleMoves(p);
+  if (depth == 0 or moves.size()==0){
         return evaluate(board);
     }
     else{
         int max = -1000000;
         int oppo = (p == 1)? 2: 1;
-        for (auto a :b.getAllPossibleMoves(p)){ //change later
+        for (auto a :moves){ //change later
             for (auto i : a){
                 Board temp = b;
                 temp.makeMove(i, p); //change
