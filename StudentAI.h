@@ -14,7 +14,7 @@ public:
 	virtual Move GetMove(Move b);
 
 	//evulation function
-	int evaluate(Board board);
+	int evaluate(Board board, int);
 	int maxMoves(int, Board, int player);
 	int minMoves(int, Board, int player);
 };

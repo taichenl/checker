@@ -16,8 +16,8 @@ StudentAI::StudentAI(int col,int row,int p)
     player = 2;
 }
 
-int StudentAI::evaluate(Board board){
-    if (player == 1){
+int StudentAI::evaluate(Board board, int p){
+    if (p==1){
         return board.blackCount-board.whiteCount;
     }
     else{
@@ -30,7 +30,7 @@ int StudentAI::evaluate(Board board){
 int StudentAI::minMoves(int depth, Board b, int p){
   vector<vector<Move>> moves = b.getAllPossibleMoves(p);
   if (depth == 0 or moves.size()==0){
-        return evaluate(b);
+    return evaluate(b, p);
     }
     else{
         int min = 1000000;
@@ -51,7 +51,7 @@ int StudentAI::minMoves(int depth, Board b, int p){
 int StudentAI::maxMoves(int depth, Board b, int p){
   vector<vector<Move>> moves = b.getAllPossibleMoves(p);
   if (depth == 0 or moves.size()==0){
-        return evaluate(board);
+    return evaluate(board, p);
     }
     else{
         int max = -1000000;
