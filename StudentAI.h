@@ -16,7 +16,7 @@ public:
 	virtual Move GetMove(Move b);
 
 	//evulation function
-	int evaluate(Board board, int);
+	int evaluate(Board boarsdfasdfd);
 	int maxMoves(int, Board, int player);
 	int minMoves(int, Board, int player);
 
@@ -24,12 +24,12 @@ public:
 
 	//Draft AI functions
 	Node* MCTS(Node* root);
-	Node traverse(Node* root);
-	bool rollout(const Node& node);
-	Node rolloutpolicy(const Node& node);
-	void backpropagate(Node&,bool result);
+	Node* traverse(Node* root);
+	bool rollout(Node* node);
+	Node* rolloutpolicy(Node* node);
+	void backpropagate(Node*,bool result);
 	Node* bestchild(Node*);
-	double UCB(const Node& node);
+	double UCB(Node *);
 	
 
 

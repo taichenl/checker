@@ -36,11 +36,11 @@ public:
     }
 
     void fill(){
-      std::cout<<"check3"<<std::endl;
-      std::cout<<curBoard.getAllPossibleMoves(player).size()<<std::endl;
+      //std::cout<<"check3"<<std::endl;
+      //std::cout<<curBoard.getAllPossibleMoves(player).size()<<std::endl;
       for (auto a :curBoard.getAllPossibleMoves(player)){
             for (auto i: a) {
-	      std::cout<<"check1"<<std::endl;
+	      //std::cout<<"check1"<<std::endl;
                 Board temp = curBoard;
                 temp.makeMove(i, player);
 		int right;
@@ -50,11 +50,21 @@ public:
 		else{
 		  right = 1;
 		}
-		std::cout<<"check2"<<std::endl;
+		//std::cout<<"check2"<<std::endl;
                 Node *current = new Node(this, temp, right, i);
                 children.push_back(current);
             }
 	    }
+    }
+
+    void clear(){
+      //std::cout<<"reached clear"<<std::endl;
+      delete parent;
+      if (children.size()!= 0){
+	for (auto i: children){
+	  delete i;}
+	}
+
     }
     Node* parent;
     Board curBoard;
